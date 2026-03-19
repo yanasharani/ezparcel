@@ -1,0 +1,72 @@
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --r:#C27080;--r2:#A85A68;--r3:#D4909A;--r4:#E8B8C0;
+  --n:#F7EEE8;--n2:#EFE4DC;--n3:#E4D4C8;--n4:#D4BEB4;
+  --w:#FFFFFF;--warm:#FBF8F5;
+  --dk:#28140C;--dk2:#3C2018;--dk3:#5A3020;
+  --mu:#8C5848;--fa:#B89088;--bo:#EAD4CC;--b2:#F4EAE4;
+}
+html,body{height:100%;font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','Helvetica Neue',sans-serif;background:var(--warm);color:var(--dk);-webkit-font-smoothing:antialiased}
+.admin-layout{display:grid;grid-template-columns:220px 1fr;min-height:100vh}
+.sidebar{background:var(--dk);display:flex;flex-direction:column;position:sticky;top:0;height:100vh;overflow-y:auto}
+.sb-head{padding:24px 20px;border-bottom:0.5px solid rgba(255,255,255,0.07)}
+.sb-logo{font-family:'Playfair Display',serif;font-size:20px;font-weight:600;color:#FBF8F5;text-decoration:none;display:flex;align-items:center;gap:8px}
+.sb-logo img{height:24px;width:auto;object-fit:contain}
+.sb-logo span{color:var(--r3);font-style:italic}
+.sb-user{display:flex;align-items:center;gap:10px;margin-top:16px}
+.sb-av{width:34px;height:34px;border-radius:50%;background:var(--r);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:#fff;flex-shrink:0}
+.sb-nm{font-size:12px;font-weight:500;color:rgba(251,248,245,0.75)}
+.sb-role{font-size:9px;letter-spacing:1px;text-transform:uppercase;color:rgba(251,248,245,0.3);margin-top:1px}
+.sb-nav{padding:14px 10px;flex:1;display:flex;flex-direction:column}
+.sb-lbl{font-size:8px;letter-spacing:2px;text-transform:uppercase;color:rgba(251,248,245,0.2);padding:12px 10px 5px;font-weight:600}
+.sb-link{display:flex;align-items:center;gap:10px;padding:10px 12px;font-size:11.5px;font-weight:400;color:rgba(251,248,245,0.4);cursor:pointer;transition:all .2s;margin-bottom:1px;text-decoration:none;border-left:2px solid transparent}
+.sb-link:hover,.sb-link.on{background:rgba(194,112,128,0.1);color:rgba(251,248,245,0.9);border-left-color:var(--r3)}
+.sb-link.on{color:var(--r3)}
+.sb-ico{font-size:14px;width:18px;text-align:center}
+.sb-badge{margin-left:auto;background:var(--r);color:white;font-size:8px;font-weight:700;padding:2px 6px;border-radius:100px}
+.admin-main{display:flex;flex-direction:column;min-height:100vh;background:var(--warm)}
+.page-body{padding:28px 36px 60px;flex:1}
+.badge{display:inline-flex;align-items:center;gap:5px;font-size:10px;font-weight:600;padding:3px 9px;border-radius:20px}
+.b-r{background:rgba(194,112,128,0.1);color:var(--r2)}
+.b-g{background:rgba(21,128,61,0.1);color:#166534}
+.b-b{background:rgba(29,78,216,0.1);color:#1e40af}
+.b-rd{background:rgba(185,28,28,0.1);color:#991b1b}
+.b-gr{background:var(--n2);color:var(--mu)}
+.b-p{background:rgba(109,40,217,0.1);color:#5b21b6}
+.bdot{width:5px;height:5px;border-radius:50%;background:currentColor}
+.tag{display:inline-flex;align-items:center;gap:5px;padding:3px 10px;border-radius:20px;font-size:10px;font-weight:600}
+.tag-green{background:rgba(21,128,61,0.1);color:#166534}
+.tag-amber,.tag-booked{background:rgba(194,112,128,0.12);color:var(--mu)}
+.tag-blue,.tag-pending{background:rgba(29,78,216,0.1);color:#1e40af}
+.tag-red{background:rgba(185,28,28,0.1);color:#991b1b}
+.tag-done{background:var(--n2);color:var(--mu)}
+.tbl-wrap{background:var(--w);border:0.5px solid var(--bo);overflow:hidden}
+.tbl-hd{padding:14px 20px;background:var(--n2);border-bottom:0.5px solid var(--bo);display:flex;justify-content:space-between;align-items:center}
+.tbl-hd-title{font-family:'Playfair Display',serif;font-size:18px;font-weight:600;color:var(--dk)}
+table.t{width:100%;border-collapse:collapse}
+table.t th{font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--fa);padding:10px 18px;text-align:left;border-bottom:0.5px solid var(--bo);background:var(--w)}
+table.t td{font-size:12.5px;color:var(--dk);padding:12px 18px;border-bottom:0.5px solid var(--b2);transition:background .15s}
+table.t tr:last-child td{border-bottom:none}
+table.t tr:hover td{background:var(--n)}
+.inp{width:100%;padding:10px 14px;border:0.5px solid var(--bo);font-size:13px;font-family:inherit;outline:none;color:var(--dk);background:var(--n);transition:all .2s}
+.inp:focus{border-color:var(--r);background:var(--w);box-shadow:0 0 0 3px rgba(194,112,128,0.1)}
+.inp::placeholder{color:var(--fa)}
+select.inp{cursor:pointer}
+textarea.inp{resize:none;line-height:1.6}
+.lbl{font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--fa);display:block;margin-bottom:6px}
+.form-group{margin-bottom:16px}
+.btn-dk{background:var(--dk);color:#FBF8F5;padding:10px 20px;font-size:11px;font-weight:700;border:none;cursor:pointer;transition:all .2s;letter-spacing:0.3px;text-decoration:none;display:inline-block}
+.btn-dk:hover{background:var(--dk2)}
+.btn-r{background:var(--r);color:#fff;padding:10px 20px;font-size:11px;font-weight:700;border:none;cursor:pointer;transition:all .2s;text-decoration:none;display:inline-block}
+.btn-r:hover{background:var(--r2)}
+.btn-out{background:none;border:0.5px solid var(--bo);color:var(--mu);padding:9px 18px;font-size:11px;font-weight:500;cursor:pointer;transition:all .2s;text-decoration:none;display:inline-block}
+.btn-out:hover{border-color:var(--r);color:var(--r)}
+.btn-sm{padding:7px 14px;font-size:10px}
+.divider{height:0.5px;background:var(--bo);margin:18px 0}
+.alert-success{background:rgba(21,128,61,0.08);border:0.5px solid rgba(21,128,61,0.2);color:#166534;padding:12px 16px;font-size:12.5px;margin-bottom:16px}
+.alert-error{background:rgba(194,112,128,0.08);border:0.5px solid rgba(194,112,128,0.2);color:var(--r2);padding:12px 16px;font-size:12.5px;margin-bottom:16px}
+.pg-hd{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:24px;flex-wrap:wrap;gap:12px}
+.pg-tag{font-size:8px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--r);display:flex;align-items:center;gap:8px;margin-bottom:8px}
+.pg-tag::before{content:'';display:inline-block;width:16px;height:1px;background:var(--r)}
+.pg-title{font-family:'Playfair Display',serif;font-size:28px;font-weight:600;color:var(--dk);letter-spacing:-0.3px}
+.pg-title em{color:var(--r);font-style:italic}
