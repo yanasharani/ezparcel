@@ -20,6 +20,9 @@ RUN sed -i 's|/var/www/html|/var/www/html/public|g' /etc/apache2/sites-available
 
 RUN a2enmod rewrite
 
+COPY docker-entrypoint.sh /usr/local/bin/
+RUN chmod +x /usr/local/bin/docker-entrypoint.sh
+
 EXPOSE 80
 
-CMD php artisan config:cache && php artisan migrate --force && apache2-foreground
+ENTRYPOINT ["docker-entrypoint.sh"]
