@@ -10,7 +10,11 @@ COPY . .
 
 RUN composer install --no-dev --optimize-autoloader
 
+RUN mkdir -p storage/logs storage/framework/sessions storage/framework/views storage/framework/cache bootstrap/cache
+
 RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
+
+RUN chmod -R 775 /var/www/html/storage /var/www/html/bootstrap/cache
 
 RUN sed -i 's|/var/www/html|/var/www/html/public|g' /etc/apache2/sites-available/000-default.conf
 
@@ -18,4 +22,4 @@ RUN a2enmod rewrite
 
 EXPOSE 80
 
-CMD ["apache2-foreground"]
+CMD php artisan config:cache && php artisan migrate --force && apache2-foreground
