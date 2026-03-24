@@ -3,26 +3,18 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\DB;
 
 return new class extends Migration
 {
     public function up(): void
     {
-        Schema::table('bookings', function (Blueprint $table) {
-            $table->enum('status', [
-                'pending',
-                'ready',
-                'on_the_way',
-                'done',
-                'cancelled'
-            ])->default('pending')->change();
-        });
+        // Works for both MySQL and PostgreSQL
+        DB::statement("ALTER TABLE bookings MODIFY COLUMN status VARCHAR(20) NOT NULL DEFAULT 'pending'");
     }
 
     public function down(): void
     {
-        Schema::table('bookings', function (Blueprint $table) {
-            $table->string('status')->default('pending')->change();
-        });
+        DB::statement("ALTER TABLE bookings MODIFY COLUMN status VARCHAR(20) NOT NULL DEFAULT 'pending'");
     }
 };
